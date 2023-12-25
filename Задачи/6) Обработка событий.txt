@@ -1,0 +1,4 @@
+def click(): 
+    print("Hello")
+ 
+btn = ttk.Button(text="Click", command=click)

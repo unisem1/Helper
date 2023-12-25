@@ -1,0 +1,46 @@
+// C# program to trap events from the file 
+using System; 
+using System.IO; 
+  
+public class GFG{ 
+   
+// Static function  
+static void nameModified(object theSender,  
+                         RenamedEventArgs eve)  
+{ 
+    Console.WriteLine("{0} NameChanged to {1}",  
+                      eve.OldFullPath, eve.FullPath); 
+} 
+  
+// Static function 
+static void modified(object theSender,  
+                     FileSystemEventArgs eve)  
+{ 
+    Console.WriteLine(eve.FullPath + " " +  
+                      eve.ChangeType); 
+} 
+  
+// Driver code 
+static public void Main() 
+{ 
+      
+      // Initiating FileSystemWatch class object 
+    FileSystemWatcher obj = new FileSystemWatcher(); 
+    
+      // Path or location 
+    obj.Path = "c:\\GeeksforGeeks"; 
+    obj.NotifyFilter = NotifyFilters.FileName | NotifyFilters.DirectoryName | 
+                       NotifyFilters.LastAccess | NotifyFilters.LastWrite; 
+      
+      obj.Filter = ""; 
+    obj.Created += new FileSystemEventHandler(modified); 
+    obj.Deleted += new FileSystemEventHandler(modified); 
+    obj.Changed += new FileSystemEventHandler(modified); 
+    obj.Renamed += new RenamedEventHandler(nameModified); 
+      
+      // Raising events on the instantiated object 
+      obj.EnableRaisingEvents = true; 
+    Console.WriteLine("To exit press any key present on the keyboard"); 
+    Console.Read(); 
+} 
+}

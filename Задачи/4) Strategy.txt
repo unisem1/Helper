@@ -1,0 +1,83 @@
+public interface IStrategy
+{
+    void Algorithm();
+}
+ 
+public class ConcreteStrategy1 : IStrategy
+{
+    public void Algorithm()
+    {}
+}
+ 
+public class ConcreteStrategy2 : IStrategy
+{
+    public void Algorithm()
+    {}
+}
+ 
+public class Context
+{
+    public IStrategy ContextStrategy { get; set; }
+ 
+    public Context(IStrategy _strategy)
+    {
+        ContextStrategy = _strategy;
+    }
+ 
+    public void ExecuteAlgorithm()
+    {
+        ContextStrategy.Algorithm();
+    }
+}
+
+//Пример 
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Car auto = new Car(4, "Volvo", new PetrolMove());
+        auto.Move();
+        auto.Movable = new ElectricMove();
+        auto.Move();
+ 
+        Console.ReadLine();
+    }
+}
+interface IMovable
+{
+    void Move();
+}
+ 
+class PetrolMove : IMovable
+{
+    public void Move()
+    {
+        Console.WriteLine("Перемещение на бензине");
+    }
+}
+ 
+class ElectricMove : IMovable
+{
+    public void Move()
+    {
+        Console.WriteLine("Перемещение на электричестве");
+    }
+}
+class Car
+{
+    protected int passengers; // кол-во пассажиров
+    protected string model; // модель автомобиля
+ 
+    public Car(int num, string model, IMovable mov)
+    {
+        this.passengers = num;
+        this.model = model;
+        Movable = mov;
+    }
+    public IMovable Movable { private get; set; }
+    public void Move()
+    {
+        Movable.Move();
+    }
+}

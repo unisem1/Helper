@@ -1,0 +1,34 @@
+public class Singleton
+{
+    private static readonly Lazy<Singleton> lazy = 
+        new Lazy<Singleton>(() => new Singleton());
+ 
+    public string Name { get; private set; }
+         
+    private Singleton()
+    {
+        Name = System.Guid.NewGuid().ToString();
+    }
+     
+    public static Singleton GetInstance()
+    {
+        return lazy.Value;
+    }
+}
+
+//
+
+class Singleton
+{
+    private static Singleton instance;
+ 
+    private Singleton()
+    {}
+ 
+    public static Singleton getInstance()
+    {
+        if (instance == null)
+            instance = new Singleton();
+        return instance;
+    }
+}

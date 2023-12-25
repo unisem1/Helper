@@ -1,0 +1,20 @@
+СОБЫТИЯ:
+https://metanit.com/sharp/tutorial/3.14.php - события
+перед ними:
+https://metanit.com/sharp/tutorial/3.13.php - делегаты
+https://metanit.com/sharp/tutorial/3.43.php - применение делегатов
+https://metanit.com/sharp/tutorial/3.16.php - лямбды
+
+https://learn.microsoft.com/ru-ru/dotnet/standard/events/ - события, делегаты, обработчики событий
+https://learn.microsoft.com/ru-ru/dotnet/standard/events/how-to-raise-and-consume-events - примеры на события
+
+https://learn.microsoft.com/ru-ru/dotnet/api/system.eventhandler?view=net-8.0 - стандартный делегат для событий EventHandler
+https://learn.microsoft.com/ru-ru/dotnet/api/system.eventhandler-1?view=net-8.0 - EventHandler<T> с данными
+
+ПАТТЕРНЫ:
+https://metanit.com/sharp/patterns/2.1.php - порождающие паттерны
+https://metanit.com/sharp/patterns/3.1.php - паттерны поведения
+https://metanit.com/sharp/patterns/4.1.php - структурные паттерны
+
+https://metanit.com/sharp/patterns/5.1.php - принципы SOLID
+https://metanit.com/sharp/patterns/1.2.php - отношения между классами (наследование, реализация, ассоциация, композиция, агрегация)
